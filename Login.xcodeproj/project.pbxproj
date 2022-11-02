@@ -20,6 +20,13 @@
 		63E856A229124FFA00D17F37 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E856A129124FFA00D17F37 /* BaseView.swift */; };
 		63E856A52912507600D17F37 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E856A42912507600D17F37 /* LoginView.swift */; };
 		63E856A72912509F00D17F37 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E856A62912509F00D17F37 /* LoginViewModel.swift */; };
+		63E856A92912594D00D17F37 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E856A82912594D00D17F37 /* SignupViewController.swift */; };
+		63E856AB2912595500D17F37 /* SignupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E856AA2912595500D17F37 /* SignupView.swift */; };
+		63E856AD2912597F00D17F37 /* SignupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E856AC2912597F00D17F37 /* SignupViewModel.swift */; };
+		63E856B129125A3600D17F37 /* UIViewBolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E856B029125A3600D17F37 /* UIViewBolder.swift */; };
+		63E856B329125EE500D17F37 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E856B229125EE500D17F37 /* ProfileViewController.swift */; };
+		63E856B529125EF500D17F37 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E856B429125EF500D17F37 /* ProfileView.swift */; };
+		63E856B729125EFE00D17F37 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E856B629125EFE00D17F37 /* ProfileViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +42,13 @@
 		63E856A129124FFA00D17F37 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		63E856A42912507600D17F37 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		63E856A62912509F00D17F37 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		63E856A82912594D00D17F37 /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
+		63E856AA2912595500D17F37 /* SignupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupView.swift; sourceTree = "<group>"; };
+		63E856AC2912597F00D17F37 /* SignupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewModel.swift; sourceTree = "<group>"; };
+		63E856B029125A3600D17F37 /* UIViewBolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewBolder.swift; sourceTree = "<group>"; };
+		63E856B229125EE500D17F37 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		63E856B429125EF500D17F37 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		63E856B629125EFE00D17F37 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +135,8 @@
 		63E8569829124E3E00D17F37 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				63E856B229125EE500D17F37 /* ProfileViewController.swift */,
+				63E856B429125EF500D17F37 /* ProfileView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -128,6 +144,7 @@
 		63E8569929124E4300D17F37 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				63E856B629125EFE00D17F37 /* ProfileViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -135,6 +152,7 @@
 		63E8569A29124E4D00D17F37 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				63E856AC2912597F00D17F37 /* SignupViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -142,6 +160,8 @@
 		63E8569B29124E5000D17F37 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				63E856A82912594D00D17F37 /* SignupViewController.swift */,
+				63E856AA2912595500D17F37 /* SignupView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -168,6 +188,7 @@
 			children = (
 				63E8569F29124FC400D17F37 /* BaseViewController.swift */,
 				63E856A129124FFA00D17F37 /* BaseView.swift */,
+				63E856AE291259E700D17F37 /* CustomView */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -179,6 +200,22 @@
 				63E8567A29123CB700D17F37 /* SceneDelegate.swift */,
 			);
 			path = Application;
+			sourceTree = "<group>";
+		};
+		63E856AE291259E700D17F37 /* CustomView */ = {
+			isa = PBXGroup;
+			children = (
+				63E856AF29125A2800D17F37 /* UIView+Custom */,
+			);
+			path = CustomView;
+			sourceTree = "<group>";
+		};
+		63E856AF29125A2800D17F37 /* UIView+Custom */ = {
+			isa = PBXGroup;
+			children = (
+				63E856B029125A3600D17F37 /* UIViewBolder.swift */,
+			);
+			path = "UIView+Custom";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -261,10 +298,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63E856AB2912595500D17F37 /* SignupView.swift in Sources */,
+				63E856B529125EF500D17F37 /* ProfileView.swift in Sources */,
 				63E856A52912507600D17F37 /* LoginView.swift in Sources */,
 				63E8567D29123CB700D17F37 /* LoginViewController.swift in Sources */,
+				63E856B129125A3600D17F37 /* UIViewBolder.swift in Sources */,
+				63E856A92912594D00D17F37 /* SignupViewController.swift in Sources */,
+				63E856B729125EFE00D17F37 /* ProfileViewModel.swift in Sources */,
 				63E856A029124FC400D17F37 /* BaseViewController.swift in Sources */,
+				63E856B329125EE500D17F37 /* ProfileViewController.swift in Sources */,
 				63E856A229124FFA00D17F37 /* BaseView.swift in Sources */,
+				63E856AD2912597F00D17F37 /* SignupViewModel.swift in Sources */,
 				63E8567929123CB700D17F37 /* AppDelegate.swift in Sources */,
 				63E8567B29123CB700D17F37 /* SceneDelegate.swift in Sources */,
 				63E856A72912509F00D17F37 /* LoginViewModel.swift in Sources */,

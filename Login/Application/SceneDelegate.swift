@@ -16,7 +16,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let scene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: scene)
         
-        let vc = LoginViewController()
+        let vc = ProfileViewController()
         
         window?.rootViewController = vc
         // 화면에 띄어주기 위한 메서드

@@ -1,5 +1,5 @@
 //
-//  LoginView.swift
+//  SignupView.swift
 //  Login
 //
 //  Created by J on 2022/11/02.
@@ -7,12 +7,11 @@
 
 import UIKit
 
-import SnapKit
-
-class LoginView: BaseView {
+class SignupView: BaseView {
+    
     let titleLabel: UILabel = {
         let view = UILabel()
-        view.text = "로그인"
+        view.text = "회원가입"
         view.font = .boldSystemFont(ofSize: 30)
         return view
     }()
@@ -24,6 +23,12 @@ class LoginView: BaseView {
     
     let passwordView: UIViewBolder = {
         let view = UIViewBolder()
+        return view
+    }()
+    
+    let userNameView: UIViewBolder = {
+        let view = UIViewBolder()
+        
         return view
     }()
     
@@ -39,13 +44,12 @@ class LoginView: BaseView {
         return view
     }()
     
-    let loginButton: UIButton = {
-        let view = UIButton()
-        view.setTitle("로그인하기", for: .normal)
-        view.backgroundColor = .green
+    let userNameTextField: UITextField = {
+        let view = UITextField()
+        view.placeholder = "닉네임 입력"
         return view
     }()
-    
+
     let signupButton: UIButton = {
         let view = UIButton()
         view.setTitle("회원가입", for: .normal)
@@ -58,13 +62,17 @@ class LoginView: BaseView {
     }
     
     override func configureUI() {
-        [titleLabel, emailView, passwordView, loginButton, signupButton].forEach{
+        [titleLabel, emailView, passwordView, userNameView, signupButton].forEach{
             self.addSubview($0)
         }
+        
+        userNameView.addSubview(userNameTextField)
         
         emailView.addSubview(emailTextField)
         
         passwordView.addSubview(passwordTextField)
+        
+        
     }
     
     override func setConstraints() {
@@ -73,9 +81,20 @@ class LoginView: BaseView {
             make.leading.equalTo(18)
         }
         
-        emailView.snp.makeConstraints { make in
+        userNameView.snp.makeConstraints { make in
             make.top.equalTo(titleLabel.snp.bottom).offset(60)
             make.width.equalTo(self.snp.width).multipliedBy(0.9)
+            make.height.equalTo(50)
+            make.centerX.equalTo(self)
+        }
+        
+        userNameTextField.snp.makeConstraints { make in
+            make.edges.equalTo(userNameView).inset(10)
+        }
+        
+        emailView.snp.makeConstraints { make in
+            make.top.equalTo(userNameView.snp.bottom).offset(8)
+            make.width.equalTo(userNameView.snp.width)
             make.height.equalTo(50)
             make.centerX.equalTo(self)
         }
@@ -86,7 +105,7 @@ class LoginView: BaseView {
         
         passwordView.snp.makeConstraints { make in
             make.top.equalTo(emailView.snp.bottom).offset(8)
-            make.width.equalTo(emailView.snp.width)
+            make.width.equalTo(userNameView.snp.width)
             make.height.equalTo(50)
             make.centerX.equalTo(self)
         }
@@ -95,19 +114,11 @@ class LoginView: BaseView {
             make.edges.equalTo(passwordView).inset(10)
         }
         
-        loginButton.snp.makeConstraints { make in
-            make.top.equalTo(passwordView.snp.bottom).offset(30)
-            make.width.equalTo(emailView.snp.width)
-            make.height.equalTo(50)
-            make.centerX.equalTo(self)
-        }
-        
         signupButton.snp.makeConstraints { make in
-            make.top.equalTo(loginButton.snp.bottom).offset(10)
-            make.width.equalTo(emailView.snp.width)
+            make.top.equalTo(passwordView.snp.bottom).offset(30)
+            make.width.equalTo(userNameView.snp.width)
             make.height.equalTo(50)
             make.centerX.equalTo(self)
         }
     }
-    
 }

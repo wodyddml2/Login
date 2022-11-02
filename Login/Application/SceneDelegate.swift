@@ -15,10 +15,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let scene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: scene)
-        
-        let vc = ProfileViewController()
-        
-        window?.rootViewController = vc
+        if UserManager.token {
+            let vc = ProfileViewController()
+            
+            window?.rootViewController = vc
+        } else {
+            let vc = LoginViewController()
+            
+            window?.rootViewController = vc
+        }
         // 화면에 띄어주기 위한 메서드
         window?.makeKeyAndVisible()
     }

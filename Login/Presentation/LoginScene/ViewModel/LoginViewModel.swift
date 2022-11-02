@@ -13,13 +13,11 @@ import RxCocoa
 class LoginViewModel: ViewModelType {
     
     struct Input {
-        
         let signup: ControlEvent<Void>
         let emailEdit: ControlEvent<Void>
         let passwordEdit: ControlEvent<Void>
         let emailText: ControlProperty<String?>
         let passwordText: ControlProperty<String?>
-        
     }
     
     struct Output {

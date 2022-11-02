@@ -30,6 +30,10 @@
 		63E856B92912637200D17F37 /* UserDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E856B82912637200D17F37 /* UserDefault.swift */; };
 		63E856BB2912670900D17F37 /* ViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E856BA2912670900D17F37 /* ViewModelType.swift */; };
 		63E856BD29126ECB00D17F37 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E856BC29126ECB00D17F37 /* UIView+Extension.swift */; };
+		63E856C229127FD800D17F37 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E856C129127FD800D17F37 /* APIService.swift */; };
+		63E856C52912808300D17F37 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E856C42912808300D17F37 /* Login.swift */; };
+		63E856C72912809200D17F37 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E856C62912809200D17F37 /* Profile.swift */; };
+		63E856C9291280DC00D17F37 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E856C8291280DC00D17F37 /* Router.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,6 +59,10 @@
 		63E856B82912637200D17F37 /* UserDefault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefault.swift; sourceTree = "<group>"; };
 		63E856BA2912670900D17F37 /* ViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelType.swift; sourceTree = "<group>"; };
 		63E856BC29126ECB00D17F37 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		63E856C129127FD800D17F37 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
+		63E856C42912808300D17F37 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
+		63E856C62912809200D17F37 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
+		63E856C8291280DC00D17F37 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +101,7 @@
 				63E856B82912637200D17F37 /* UserDefault.swift */,
 				63E856BC29126ECB00D17F37 /* UIView+Extension.swift */,
 				63E856BA2912670900D17F37 /* ViewModelType.swift */,
+				63E856BE29127FA100D17F37 /* Network */,
 				63E856A32912504700D17F37 /* Application */,
 				63E8569429124DB400D17F37 /* Presentation */,
 				63E8567E29123CB700D17F37 /* Main.storyboard */,
@@ -227,6 +236,25 @@
 			path = "UIView+Custom";
 			sourceTree = "<group>";
 		};
+		63E856BE29127FA100D17F37 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				63E856C129127FD800D17F37 /* APIService.swift */,
+				63E856C8291280DC00D17F37 /* Router.swift */,
+				63E856C32912805000D17F37 /* Model */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		63E856C32912805000D17F37 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				63E856C42912808300D17F37 /* Login.swift */,
+				63E856C62912809200D17F37 /* Profile.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -308,6 +336,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				63E856AB2912595500D17F37 /* SignupView.swift in Sources */,
+				63E856C72912809200D17F37 /* Profile.swift in Sources */,
 				63E856B529125EF500D17F37 /* ProfileView.swift in Sources */,
 				63E856B92912637200D17F37 /* UserDefault.swift in Sources */,
 				63E856A52912507600D17F37 /* LoginView.swift in Sources */,
@@ -316,13 +345,16 @@
 				63E856A92912594D00D17F37 /* SignupViewController.swift in Sources */,
 				63E856B729125EFE00D17F37 /* ProfileViewModel.swift in Sources */,
 				63E856A029124FC400D17F37 /* BaseViewController.swift in Sources */,
+				63E856C9291280DC00D17F37 /* Router.swift in Sources */,
 				63E856B329125EE500D17F37 /* ProfileViewController.swift in Sources */,
 				63E856A229124FFA00D17F37 /* BaseView.swift in Sources */,
 				63E856AD2912597F00D17F37 /* SignupViewModel.swift in Sources */,
 				63E856BB2912670900D17F37 /* ViewModelType.swift in Sources */,
+				63E856C52912808300D17F37 /* Login.swift in Sources */,
 				63E8567929123CB700D17F37 /* AppDelegate.swift in Sources */,
 				63E8567B29123CB700D17F37 /* SceneDelegate.swift in Sources */,
 				63E856A72912509F00D17F37 /* LoginViewModel.swift in Sources */,
+				63E856C229127FD800D17F37 /* APIService.swift in Sources */,
 				63E856BD29126ECB00D17F37 /* UIView+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

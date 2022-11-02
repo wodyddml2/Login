@@ -25,7 +25,7 @@ class LoginViewController: BaseViewController {
         super.viewDidLoad()
         
         bind()
-        
+    
     }
 
     func bind() {

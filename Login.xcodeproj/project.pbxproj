@@ -28,6 +28,8 @@
 		63E856B529125EF500D17F37 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E856B429125EF500D17F37 /* ProfileView.swift */; };
 		63E856B729125EFE00D17F37 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E856B629125EFE00D17F37 /* ProfileViewModel.swift */; };
 		63E856B92912637200D17F37 /* UserDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E856B82912637200D17F37 /* UserDefault.swift */; };
+		63E856BB2912670900D17F37 /* ViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E856BA2912670900D17F37 /* ViewModelType.swift */; };
+		63E856BD29126ECB00D17F37 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E856BC29126ECB00D17F37 /* UIView+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +53,8 @@
 		63E856B429125EF500D17F37 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		63E856B629125EFE00D17F37 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		63E856B82912637200D17F37 /* UserDefault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefault.swift; sourceTree = "<group>"; };
+		63E856BA2912670900D17F37 /* ViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelType.swift; sourceTree = "<group>"; };
+		63E856BC29126ECB00D17F37 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +91,8 @@
 			isa = PBXGroup;
 			children = (
 				63E856B82912637200D17F37 /* UserDefault.swift */,
+				63E856BC29126ECB00D17F37 /* UIView+Extension.swift */,
+				63E856BA2912670900D17F37 /* ViewModelType.swift */,
 				63E856A32912504700D17F37 /* Application */,
 				63E8569429124DB400D17F37 /* Presentation */,
 				63E8567E29123CB700D17F37 /* Main.storyboard */,
@@ -313,9 +319,11 @@
 				63E856B329125EE500D17F37 /* ProfileViewController.swift in Sources */,
 				63E856A229124FFA00D17F37 /* BaseView.swift in Sources */,
 				63E856AD2912597F00D17F37 /* SignupViewModel.swift in Sources */,
+				63E856BB2912670900D17F37 /* ViewModelType.swift in Sources */,
 				63E8567929123CB700D17F37 /* AppDelegate.swift in Sources */,
 				63E8567B29123CB700D17F37 /* SceneDelegate.swift in Sources */,
 				63E856A72912509F00D17F37 /* LoginViewModel.swift in Sources */,
+				63E856BD29126ECB00D17F37 /* UIView+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

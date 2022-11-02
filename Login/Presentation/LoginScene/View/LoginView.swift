@@ -17,6 +17,22 @@ class LoginView: BaseView {
         return view
     }()
     
+    let emailValidLabel: UILabel = {
+        let view = UILabel()
+        view.text = "이메일 형식으로 입력해주세요."
+        view.font = .systemFont(ofSize: 12)
+        view.isHidden = true
+        return view
+    }()
+    
+    let passwordValidLabel: UILabel = {
+        let view = UILabel()
+        view.text = "8자 이상 입력해주세요."
+        view.font = .systemFont(ofSize: 12)
+        view.isHidden = true
+        return view
+    }()
+    
     let emailView: UIViewBolder = {
         let view = UIViewBolder()
         return view
@@ -36,13 +52,15 @@ class LoginView: BaseView {
     let passwordTextField: UITextField = {
         let view = UITextField()
         view.placeholder = "비밀번호 입력"
+        view.isEnabled = false
         return view
     }()
     
     let loginButton: UIButton = {
         let view = UIButton()
         view.setTitle("로그인하기", for: .normal)
-        view.backgroundColor = .green
+        view.backgroundColor = .gray
+        view.isEnabled = false
         return view
     }()
     
@@ -53,12 +71,14 @@ class LoginView: BaseView {
         return view
     }()
     
+  
     override init(frame: CGRect) {
         super.init(frame: frame)
     }
     
     override func configureUI() {
-        [titleLabel, emailView, passwordView, loginButton, signupButton].forEach{
+        
+        [titleLabel, emailView, emailValidLabel, passwordView, passwordValidLabel, loginButton, signupButton].forEach{
             self.addSubview($0)
         }
         
@@ -84,8 +104,13 @@ class LoginView: BaseView {
             make.edges.equalTo(emailView).inset(10)
         }
         
-        passwordView.snp.makeConstraints { make in
+        emailValidLabel.snp.makeConstraints { make in
             make.top.equalTo(emailView.snp.bottom).offset(8)
+            make.leading.equalTo(emailView.snp.leading)
+        }
+        
+        passwordView.snp.makeConstraints { make in
+            make.top.equalTo(emailValidLabel.snp.bottom).offset(8)
             make.width.equalTo(emailView.snp.width)
             make.height.equalTo(50)
             make.centerX.equalTo(self)
@@ -95,8 +120,13 @@ class LoginView: BaseView {
             make.edges.equalTo(passwordView).inset(10)
         }
         
+        passwordValidLabel.snp.makeConstraints { make in
+            make.top.equalTo(passwordView.snp.bottom).offset(8)
+            make.leading.equalTo(passwordView.snp.leading)
+        }
+        
         loginButton.snp.makeConstraints { make in
-            make.top.equalTo(passwordView.snp.bottom).offset(30)
+            make.top.equalTo(passwordValidLabel.snp.bottom).offset(25)
             make.width.equalTo(emailView.snp.width)
             make.height.equalTo(50)
             make.centerX.equalTo(self)

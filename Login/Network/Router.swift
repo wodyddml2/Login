@@ -33,7 +33,7 @@ extension Router {
             return ["Content-Type": "application/x-www-form-urlencoded"]
         case .profile:
             return [
-                "Authorization": "Bearer \(UserDefaults.standard.string(forKey: "token")!)",
+                "Authorization": "Bearer \(UserManager.token)",
                 "Content-Type": "application/x-www-form-urlencoded"
             ]
         }

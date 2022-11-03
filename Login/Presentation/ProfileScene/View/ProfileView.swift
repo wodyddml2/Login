@@ -9,9 +9,16 @@ import UIKit
 
 class ProfileView: BaseView {
     
+    let logoutButton: UIButton = {
+        let view = UIButton()
+        view.setTitle("로그아웃", for: .normal)
+        view.backgroundColor = .red
+        return view
+    }()
+    
     let photoImageView: UIImageView = {
         let view = UIImageView()
-        view.backgroundColor = .red
+        view.backgroundColor = .blue
         view.layer.masksToBounds = true
         view.contentMode = .scaleAspectFill
         return view
@@ -19,13 +26,13 @@ class ProfileView: BaseView {
     
     let userNameLabel: UILabel = {
         let view = UILabel()
-        view.text = "닉네임:  "
+     
         return view
     }()
     
     let emailLabel: UILabel = {
         let view = UILabel()
-        view.text = "이메일:  "
+        
         return view
     }()
     
@@ -34,15 +41,21 @@ class ProfileView: BaseView {
     }
     
     override func configureUI() {
-        [photoImageView, userNameLabel, emailLabel].forEach {
+        [logoutButton, photoImageView, userNameLabel, emailLabel].forEach {
             self.addSubview($0)
         }
     }
     
     override func setConstraints() {
+        
+        logoutButton.snp.makeConstraints { make in
+            make.trailing.equalTo(self.safeAreaLayoutGuide).offset(-16)
+            make.top.equalTo(self.safeAreaLayoutGuide).offset(30)
+        }
+        
         photoImageView.snp.makeConstraints { make in
             make.height.width.equalTo(200)
-            make.top.equalTo(self.safeAreaLayoutGuide).offset(30)
+            make.top.equalTo(logoutButton.snp.bottom).offset(40)
             make.centerX.equalTo(self)
         }
         

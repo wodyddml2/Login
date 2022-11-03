@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		6380EA592912E18800903DDC /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6380EA582912E18800903DDC /* UILabel+Extension.swift */; };
+		63B5F591291429A800D00AB5 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 63B5F590291429A800D00AB5 /* Kingfisher */; };
 		63E8567929123CB700D17F37 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E8567829123CB700D17F37 /* AppDelegate.swift */; };
 		63E8567B29123CB700D17F37 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E8567A29123CB700D17F37 /* SceneDelegate.swift */; };
 		63E8567D29123CB700D17F37 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E8567C29123CB700D17F37 /* LoginViewController.swift */; };
@@ -72,6 +73,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63B5F591291429A800D00AB5 /* Kingfisher in Frameworks */,
 				63E8569329124D8000D17F37 /* SnapKit in Frameworks */,
 				63E8569029124D6F00D17F37 /* RxSwift in Frameworks */,
 				63E8568E29124D6F00D17F37 /* RxCocoa in Frameworks */,
@@ -286,6 +288,7 @@
 				63E8568D29124D6F00D17F37 /* RxCocoa */,
 				63E8568F29124D6F00D17F37 /* RxSwift */,
 				63E8569229124D8000D17F37 /* SnapKit */,
+				63B5F590291429A800D00AB5 /* Kingfisher */,
 			);
 			productName = Login;
 			productReference = 63E8567529123CB700D17F37 /* Login.app */;
@@ -318,6 +321,7 @@
 			packageReferences = (
 				63E8568C29124D6F00D17F37 /* XCRemoteSwiftPackageReference "RxSwift" */,
 				63E8569129124D8000D17F37 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				63B5F58F291429A800D00AB5 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = 63E8567629123CB700D17F37 /* Products */;
 			projectDirPath = "";
@@ -585,6 +589,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		63B5F58F291429A800D00AB5 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
 		63E8568C29124D6F00D17F37 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
@@ -604,6 +616,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		63B5F590291429A800D00AB5 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 63B5F58F291429A800D00AB5 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
 		63E8568D29124D6F00D17F37 /* RxCocoa */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 63E8568C29124D6F00D17F37 /* XCRemoteSwiftPackageReference "RxSwift" */;

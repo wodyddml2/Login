@@ -43,8 +43,10 @@ class LoginViewController: BaseViewController {
             .observe(on: MainScheduler.instance)
             .bind { vc, result in
             switch result {
-            case .success( _ ):
-                UserManager.token = true
+            case .success( let value ):
+                UserManager.token = value.token
+                UserManager.login = true
+                
                 let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
                 let sceneDelegate = windowScene?.delegate as? SceneDelegate
                 

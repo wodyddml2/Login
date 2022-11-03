@@ -26,6 +26,9 @@ struct UserDefault<T> {
 }
 
 class UserManager {
-    @UserDefault(key: "token", defaultValue: false)
-    static var token: Bool
+    @UserDefault(key: "login", defaultValue: false)
+    static var login: Bool
+    
+    @UserDefault(key: "token", defaultValue: "")
+    static var token: String
 }

@@ -85,18 +85,33 @@ class SignupViewController: BaseViewController {
             .disposed(by: disposeBag)
         
         output.emailText
-            .bind(to: mainView.emailValidLabel.rx.isHidden, mainView.passwordTextField.rx.isEnabled)
+            .bind(to: mainView.emailValidLabel.rx.isHidden)
             .disposed(by: disposeBag)
+        
+        Observable.combineLatest(output.userText, output.emailText) { user, email in
+            return user && email
+        }
+        .bind(to: mainView.passwordTextField.rx.isEnabled)
+        .disposed(by: disposeBag)
+        
+        Observable.combineLatest(output.userText, output.emailText, output.passwordText) { user, email, password in
+            return user && email && password
+            
+        }
+        .withUnretained(self)
+        .bind { vc, bool in
+            vc.mainView.signupButton.isEnabled = bool
+            vc.mainView.signupButton.backgroundColor = bool ? .green : .gray
+        }
+        .disposed(by: disposeBag)
         
         output.passwordText
             .withUnretained(self)
             .bind { vc, bool in
-                vc.mainView.signupButton.isEnabled = bool
                 vc.mainView.passwordValidLabel.isHidden = bool
-                vc.mainView.signupButton.backgroundColor = bool ? .green : .gray
             }
             .disposed(by: disposeBag)
-        
+       
         output.signup
             .withUnretained(self)
             .bind { vc, _ in

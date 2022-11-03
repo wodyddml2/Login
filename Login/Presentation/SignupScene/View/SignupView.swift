@@ -22,7 +22,7 @@ class SignupView: BaseView {
         return view
     }()
     
-    let emailValidLabel: UILabel = {
+    var emailValidLabel: UILabel = {
         let view = UILabel()
         view.validTextAndFont(text: "이메일 형식으로 입력해주세요.")
         return view

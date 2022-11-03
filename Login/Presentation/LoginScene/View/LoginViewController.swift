@@ -66,15 +66,23 @@ class LoginViewController: BaseViewController {
             .bind(to: mainView.passwordTextField.rx.isEnabled, mainView.emailValidLabel.rx.isHidden)
             .disposed(by: disposeBag)
         
-        
         output.passwordText
             .withUnretained(self)
             .bind { vc, bool in
-                vc.mainView.loginButton.isEnabled = bool
                 vc.mainView.passwordValidLabel.isHidden = bool
-                vc.mainView.loginButton.backgroundColor = bool ? .green : .gray
             }
             .disposed(by: disposeBag)
+        
+        Observable.combineLatest(output.emailText, output.passwordText) { email, password in
+            return email && password
+            
+        }
+        .withUnretained(self)
+        .bind { vc, bool in
+            vc.mainView.loginButton.isEnabled = bool
+            vc.mainView.loginButton.backgroundColor = bool ? .green : .gray
+        }
+        .disposed(by: disposeBag)
     }
 
 }

@@ -45,7 +45,6 @@ class LoginViewController: BaseViewController {
             }
             .disposed(by: disposeBag)
         
-        
         output.emailEdit
             .withUnretained(self)
             .bind { vc, _ in

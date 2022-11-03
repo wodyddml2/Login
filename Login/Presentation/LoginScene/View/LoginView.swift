@@ -19,17 +19,13 @@ class LoginView: BaseView {
     
     let emailValidLabel: UILabel = {
         let view = UILabel()
-        view.text = "이메일 형식으로 입력해주세요."
-        view.font = .systemFont(ofSize: 12)
-        view.isHidden = true
+        view.validTextAndFont(text: "이메일 형식으로 입력해주세요.")
         return view
     }()
     
     let passwordValidLabel: UILabel = {
         let view = UILabel()
-        view.text = "8자 이상 입력해주세요."
-        view.font = .systemFont(ofSize: 12)
-        view.isHidden = true
+        view.validTextAndFont(text: "8자 이상 입력해주세요.")
         return view
     }()
     

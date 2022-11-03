@@ -22,5 +22,13 @@ class BaseViewController: UIViewController {
     
     func setConstraints() { }
     
-
+    func showAlert(text: String) {
+        let alert = UIAlertController(title: text, message: nil, preferredStyle: .alert)
+        
+        let ok = UIAlertAction(title: "확인", style: .default)
+        
+        alert.addAction(ok)
+        
+        present(alert, animated: true)
+    }
 }

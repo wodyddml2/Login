@@ -13,7 +13,9 @@ enum Router {
     case profile
 }
 
+
 extension Router {
+
     var url: URL {
         switch self {
         case .signup:

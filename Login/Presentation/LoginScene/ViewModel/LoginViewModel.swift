@@ -11,11 +11,22 @@ import RxSwift
 import RxCocoa
 
 class LoginViewModel: ViewModelType {
+    
+    let login = PublishSubject<Result<Login,APIError>>()
+    
+    func requestLogin(email: String, password: String) {
+        let api = Router.login(email: email, password: password)
+        
+        APIService.shared.requestSeSAC(type: Login.self, url: api.url, parameter: api.parameter, method: "POST", headers: api.header) { [weak self] result in
+            self?.login.onNext(result)
+        }
+    }
+    
     var disposeBag: DisposeBag = DisposeBag()
    
-    
     struct Input {
         let signup: ControlEvent<Void>
+        let login: ControlEvent<Void>
         let emailEdit: ControlEvent<Void>
         let passwordEdit: ControlEvent<Void>
         let emailText: ControlProperty<String?>
@@ -24,6 +35,7 @@ class LoginViewModel: ViewModelType {
     
     struct Output {
         let signup: ControlEvent<Void>
+        let login: ControlEvent<Void>
         let emailEdit: ControlEvent<Void>
         let passwordEdit: ControlEvent<Void>
         let emailText: Observable<Bool>
@@ -50,6 +62,6 @@ class LoginViewModel: ViewModelType {
             .changed
             .map {$0.count > 7}
         
-        return Output(signup: input.signup, emailEdit: input.emailEdit, passwordEdit: input.passwordEdit, emailText: emailText, passwordText: passwordText)
+        return Output(signup: input.signup, login: input.login, emailEdit: input.emailEdit, passwordEdit: input.passwordEdit, emailText: emailText, passwordText: passwordText)
     }
 }

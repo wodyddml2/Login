@@ -31,11 +31,41 @@ class LoginViewController: BaseViewController {
     func bind() {
         let input = LoginViewModel.Input(
             signup: mainView.signupButton.rx.tap,
+            login: mainView.loginButton.rx.tap,
             emailEdit: mainView.emailTextField.rx.controlEvent(.editingDidBegin),
             passwordEdit: mainView.passwordTextField.rx.controlEvent(.editingDidBegin),
             emailText: mainView.emailTextField.rx.text,
             passwordText: mainView.passwordTextField.rx.text)
         let output = viewModel.transform(input: input)
+        
+        viewModel.login
+            .withUnretained(self)
+            .observe(on: MainScheduler.instance)
+            .bind { vc, result in
+            switch result {
+            case .success( _ ):
+                UserManager.token = true
+                let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
+                let sceneDelegate = windowScene?.delegate as? SceneDelegate
+                
+                let viewController = ProfileViewController()
+                
+                sceneDelegate?.window?.rootViewController = viewController
+                sceneDelegate?.window?.makeKeyAndVisible()
+            case .failure(let error):
+                vc.showAlert(text: error.localizedDescription)
+            }
+        }
+            .disposed(by: disposeBag)
+        
+        output.login
+            .withUnretained(self)
+            .bind { vc, _ in
+                vc.viewModel.requestLogin(
+                    email: vc.mainView.emailTextField.text!,
+                    password: vc.mainView.passwordTextField.text!)
+            }
+            .disposed(by: disposeBag)
         
         output.signup
             .withUnretained(self)

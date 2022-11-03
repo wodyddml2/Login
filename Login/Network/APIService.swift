@@ -35,7 +35,7 @@ class APIService {
     
     private init() { }
     
-    func requestSeSAC<T: Decodable>(type: T.Type = T.self, url: URL, parameter: [URLQueryItem]? = nil, method: String = "GET",headers: [String: String], completionHandler: @escaping (Result<T, APIError>) -> Void) {
+    func requestSeSAC<T: Decodable>(type: T.Type = T.self, url: URL, parameter: [URLQueryItem]? = nil, method: String = "GET", headers: [String: String], completionHandler: @escaping (Result<T, APIError>) -> Void) {
         
         var compoment = URLComponents()
         compoment.queryItems = parameter
@@ -47,11 +47,11 @@ class APIService {
         
         URLSession.shared.dataTask(with: request) { data, response, error in
             
-            guard let response = response as? HTTPURLResponse else {
+            guard let response = response as? HTTPURLResponse, let data = data else {
                 return completionHandler(.failure(.failedRequest))
             }
             
-            guard error == nil || data != nil || response.statusCode == 200 else {
+            guard error == nil || response.statusCode == 200 else {
                 return completionHandler(.failure(.failedRequest))
             }
             
@@ -63,8 +63,11 @@ class APIService {
                 return completionHandler(.failure(.takeEmail))
             }
             
+            guard let result = try? JSONDecoder().decode(T.self, from: data) else {
+                return completionHandler(.failure(.failedRequest))
+            }
             
-            completionHandler(.success("ok" as! T))
+            completionHandler(.success(result))
             
         }.resume()
         

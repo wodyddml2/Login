@@ -10,7 +10,7 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-class SignupViewModel: ViewModelType {
+final class SignupViewModel: ViewModelType {
     
     var disposeBag: DisposeBag = DisposeBag()
     
@@ -22,15 +22,6 @@ class SignupViewModel: ViewModelType {
             self?.signup.onNext(value)
         }
         .disposed(by: disposeBag)
-        
-//        APIService.shared.requestSignup(name: name, email: email, password: password) { [weak self] result in
-//            switch result {
-//            case .success(let success):
-//                self?.signup.onNext(success)
-//            case .failure(let error):
-//                self?.signup.onError(error)
-//            }
-//        }
     }
     
     struct Input {
@@ -51,11 +42,6 @@ class SignupViewModel: ViewModelType {
         let emailText: Observable<Bool>
         let passwordText: Observable<Bool>
         let signup: ControlEvent<Void>
-    }
-    
-    func validateEmail(_ text: String) -> Bool {
-        let emailRegEx = "[A-Z0-9a-z]{2,16}+@[A-Za-z0-9]{4,16}+\\.[A-Za-z]{2,10}"
-        return text.range(of: emailRegEx, options: .regularExpression) != nil
     }
     
     func transform(input: Input) -> Output {

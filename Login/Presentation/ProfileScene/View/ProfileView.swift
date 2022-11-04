@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ProfileView: BaseView {
+final class ProfileView: BaseView {
     
     let logoutButton: UIButton = {
         let view = UIButton()

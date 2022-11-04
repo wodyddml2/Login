@@ -10,7 +10,7 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-class ProfileViewModel: ViewModelType {
+final class ProfileViewModel: ViewModelType {
     var disposeBag: DisposeBag = DisposeBag()
     
     let profile = BehaviorSubject(value: Profile(user: User(photo: "", email: "", username: "")))

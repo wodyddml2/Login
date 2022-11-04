@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SignupView: BaseView {
+final class SignupView: BaseView {
     
     let titleLabel: UILabel = {
         let view = UILabel()

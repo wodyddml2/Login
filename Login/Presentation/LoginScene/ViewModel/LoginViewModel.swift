@@ -10,7 +10,7 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-class LoginViewModel: ViewModelType {
+final class LoginViewModel: ViewModelType {
     
     let login = PublishSubject<Result<Login,APIError>>()
     
@@ -41,12 +41,7 @@ class LoginViewModel: ViewModelType {
         let emailText: Observable<Bool>
         let passwordText: Observable<Bool>
     }
-    
-    func validateEmail(_ text: String) -> Bool {
-        let emailRegEx = "[A-Z0-9a-z]{2,16}+@[A-Za-z0-9]{4,16}+\\.[A-Za-z]{2,10}"
-        return text.range(of: emailRegEx, options: .regularExpression) != nil
-    }
-    
+
     func transform(input: Input) -> Output {
         
         let emailText = input.emailText

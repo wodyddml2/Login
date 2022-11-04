@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		6380EA592912E18800903DDC /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6380EA582912E18800903DDC /* UILabel+Extension.swift */; };
 		63B5F591291429A800D00AB5 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 63B5F590291429A800D00AB5 /* Kingfisher */; };
+		63B5F59329142AD700D00AB5 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B5F59229142AD700D00AB5 /* APIError.swift */; };
 		63E8567929123CB700D17F37 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E8567829123CB700D17F37 /* AppDelegate.swift */; };
 		63E8567B29123CB700D17F37 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E8567A29123CB700D17F37 /* SceneDelegate.swift */; };
 		63E8567D29123CB700D17F37 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E8567C29123CB700D17F37 /* LoginViewController.swift */; };
@@ -40,6 +41,7 @@
 
 /* Begin PBXFileReference section */
 		6380EA582912E18800903DDC /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
+		63B5F59229142AD700D00AB5 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		63E8567529123CB700D17F37 /* Login.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Login.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		63E8567829123CB700D17F37 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		63E8567A29123CB700D17F37 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -92,6 +94,56 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
+		63B5F59429142BBB00D00AB5 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				63B5F59629142CB400D00AB5 /* PropertyWrapper */,
+				63B5F59529142BC400D00AB5 /* Error */,
+				6380EA572912E14A00903DDC /* Extension */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
+		63B5F59529142BC400D00AB5 /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				63B5F59229142AD700D00AB5 /* APIError.swift */,
+			);
+			path = Error;
+			sourceTree = "<group>";
+		};
+		63B5F59629142CB400D00AB5 /* PropertyWrapper */ = {
+			isa = PBXGroup;
+			children = (
+				63E856B82912637200D17F37 /* UserDefault.swift */,
+			);
+			path = PropertyWrapper;
+			sourceTree = "<group>";
+		};
+		63B5F59729142D8800D00AB5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				63E856A129124FFA00D17F37 /* BaseView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		63B5F59829142D9400D00AB5 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				63E8569F29124FC400D17F37 /* BaseViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		63B5F59929142D9F00D00AB5 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				63E856BA2912670900D17F37 /* ViewModelType.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		63E8566C29123CB700D17F37 = {
 			isa = PBXGroup;
 			children = (
@@ -111,9 +163,7 @@
 		63E8567729123CB700D17F37 /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				63E856B82912637200D17F37 /* UserDefault.swift */,
-				6380EA572912E14A00903DDC /* Extension */,
-				63E856BA2912670900D17F37 /* ViewModelType.swift */,
+				63B5F59429142BBB00D00AB5 /* Util */,
 				63E856BE29127FA100D17F37 /* Network */,
 				63E856A32912504700D17F37 /* Application */,
 				63E8569429124DB400D17F37 /* Presentation */,
@@ -217,8 +267,9 @@
 		63E8569E29124FAC00D17F37 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				63E8569F29124FC400D17F37 /* BaseViewController.swift */,
-				63E856A129124FFA00D17F37 /* BaseView.swift */,
+				63B5F59929142D9F00D00AB5 /* ViewModel */,
+				63B5F59829142D9400D00AB5 /* ViewController */,
+				63B5F59729142D8800D00AB5 /* View */,
 				63E856AE291259E700D17F37 /* CustomView */,
 			);
 			path = Common;
@@ -361,6 +412,7 @@
 				63E856B729125EFE00D17F37 /* ProfileViewModel.swift in Sources */,
 				6380EA592912E18800903DDC /* UILabel+Extension.swift in Sources */,
 				63E856A029124FC400D17F37 /* BaseViewController.swift in Sources */,
+				63B5F59329142AD700D00AB5 /* APIError.swift in Sources */,
 				63E856C9291280DC00D17F37 /* Router.swift in Sources */,
 				63E856B329125EE500D17F37 /* ProfileViewController.swift in Sources */,
 				63E856A229124FFA00D17F37 /* BaseView.swift in Sources */,

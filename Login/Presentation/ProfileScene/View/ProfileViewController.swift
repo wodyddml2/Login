@@ -10,11 +10,11 @@ import UIKit
 import Kingfisher
 import RxSwift
 
-class ProfileViewController: BaseViewController {
+final class ProfileViewController: BaseViewController {
 
-    let mainView = ProfileView()
-    let viewModel = ProfileViewModel()
-    let disposeBag = DisposeBag()
+    private let mainView = ProfileView()
+    private let viewModel = ProfileViewModel()
+    private let disposeBag = DisposeBag()
     
     override func loadView() {
         self.view = mainView
@@ -26,7 +26,7 @@ class ProfileViewController: BaseViewController {
         bind()
     }
     
-    func bind() {
+    private func bind() {
         
         let input = ProfileViewModel.Input(logout: mainView.logoutButton.rx.tap)
         
@@ -37,13 +37,8 @@ class ProfileViewController: BaseViewController {
             .bind { vc, _ in
                 UserDefaults.standard.removeObject(forKey: "token")
                 UserManager.login = false
-                let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
-                let sceneDelegate = windowScene?.delegate as? SceneDelegate
                 
-                let viewController = LoginViewController()
-                
-                sceneDelegate?.window?.rootViewController = viewController
-                sceneDelegate?.window?.makeKeyAndVisible()
+                vc.sceneChange(viewController: LoginViewController())
             }
             .disposed(by: disposeBag)
         
@@ -64,10 +59,6 @@ class ProfileViewController: BaseViewController {
             print(error)
         }
         .disposed(by: disposeBag)
-        
-        
-        
-
     }
 
 }

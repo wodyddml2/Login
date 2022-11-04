@@ -9,7 +9,7 @@ import UIKit
 
 import SnapKit
 
-class LoginView: BaseView {
+final class LoginView: BaseView {
     let titleLabel: UILabel = {
         let view = UILabel()
         view.text = "로그인"

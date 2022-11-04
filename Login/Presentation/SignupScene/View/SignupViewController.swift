@@ -11,22 +11,26 @@ import RxSwift
 
 class SignupViewController: BaseViewController {
     
-    let mainView = SignupView()
-    let viewModel = SignupViewModel()
+    private let mainView = SignupView()
+    private let viewModel = SignupViewModel()
     
-    let disposeBag = DisposeBag()
+    private let disposeBag = DisposeBag()
     
     override func loadView() {
         self.view = mainView
     }
     
     override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        bind()
+        super.viewDidLoad() 
     }
     
-    func bind() {
+    override func configureUI() {
+        signupBind()
+        editBind()
+        textBind()
+    }
+    
+    private func output() -> SignupViewModel.Output {
         let input = SignupViewModel.Input(
             userEdit: mainView.userNameTextField.rx.controlEvent(.editingDidBegin),
             emailEdit: mainView.emailTextField.rx.controlEvent(.editingDidBegin),
@@ -37,8 +41,10 @@ class SignupViewController: BaseViewController {
             signup: mainView.signupButton.rx.tap
         )
         
-        let output = viewModel.transform(input: input)
-        
+        return viewModel.transform(input: input)
+    }
+    
+    private func signupBind() {
         viewModel.signup
             .withUnretained(self)
             .observe(on: MainScheduler.instance)
@@ -51,9 +57,10 @@ class SignupViewController: BaseViewController {
                 }
             }
             .disposed(by: disposeBag)
-//
-        
-        output.userEdit
+    }
+    
+    private func editBind() {
+        output().userEdit
             .withUnretained(self)
             .bind { vc, _ in
                 vc.mainView.userNameView.blackBorder()
@@ -62,7 +69,7 @@ class SignupViewController: BaseViewController {
             }
             .disposed(by: disposeBag)
         
-        output.emailEdit
+        output().emailEdit
             .withUnretained(self)
             .bind { vc, _ in
                 vc.mainView.userNameView.lightGrayBorder()
@@ -71,7 +78,7 @@ class SignupViewController: BaseViewController {
             }
             .disposed(by: disposeBag)
         
-        output.passwordEdit
+        output().passwordEdit
             .withUnretained(self)
             .bind { vc, _ in
                 vc.mainView.userNameView.lightGrayBorder()
@@ -79,22 +86,27 @@ class SignupViewController: BaseViewController {
                 vc.mainView.passwordView.blackBorder()
             }
             .disposed(by: disposeBag)
+    }
+    
+    
+    
+    private func textBind() {
         
-        output.userText
+        output().userText
             .bind(to: mainView.userNameValidLabel.rx.isHidden, mainView.emailTextField.rx.isEnabled)
             .disposed(by: disposeBag)
         
-        output.emailText
+        output().emailText
             .bind(to: mainView.emailValidLabel.rx.isHidden)
             .disposed(by: disposeBag)
         
-        Observable.combineLatest(output.userText, output.emailText) { user, email in
+        Observable.combineLatest(output().userText, output().emailText) { user, email in
             return user && email
         }
         .bind(to: mainView.passwordTextField.rx.isEnabled)
         .disposed(by: disposeBag)
         
-        Observable.combineLatest(output.userText, output.emailText, output.passwordText) { user, email, password in
+        Observable.combineLatest(output().userText, output().emailText, output().passwordText) { user, email, password in
             return user && email && password
             
         }
@@ -105,14 +117,14 @@ class SignupViewController: BaseViewController {
         }
         .disposed(by: disposeBag)
         
-        output.passwordText
+        output().passwordText
             .withUnretained(self)
             .bind { vc, bool in
                 vc.mainView.passwordValidLabel.isHidden = bool
             }
             .disposed(by: disposeBag)
        
-        output.signup
+        output().signup
             .withUnretained(self)
             .bind { vc, _ in
                 vc.viewModel.requestSignup(name: vc.mainView.userNameTextField.text!, email: vc.mainView.emailTextField.text!, password: vc.mainView.passwordTextField.text!)

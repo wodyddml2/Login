@@ -31,4 +31,14 @@ class BaseViewController: UIViewController {
         
         present(alert, animated: true)
     }
+    
+    func sceneChange(viewController vc: UIViewController) {
+        let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
+        let sceneDelegate = windowScene?.delegate as? SceneDelegate
+        
+        let viewController = vc
+        
+        sceneDelegate?.window?.rootViewController = viewController
+        sceneDelegate?.window?.makeKeyAndVisible()
+    }
 }

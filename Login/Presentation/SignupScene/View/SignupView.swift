@@ -18,19 +18,19 @@ final class SignupView: BaseView {
     
     let userNameValidLabel: UILabel = {
         let view = UILabel()
-        view.validTextAndFont(text: "2자 이상 입력해주세요.")
+        view.validTextAndFont(text: ValidText.username.rawValue)
         return view
     }()
     
     var emailValidLabel: UILabel = {
         let view = UILabel()
-        view.validTextAndFont(text: "이메일 형식으로 입력해주세요.")
+        view.validTextAndFont(text: ValidText.email.rawValue)
         return view
     }()
     
     let passwordValidLabel: UILabel = {
         let view = UILabel()
-        view.validTextAndFont(text: "8자 이상 입력해주세요.")
+        view.validTextAndFont(text: ValidText.password.rawValue)
         return view
     }()
     
@@ -51,21 +51,21 @@ final class SignupView: BaseView {
     
     let emailTextField: UITextField = {
         let view = UITextField()
-        view.placeholder = "가입한 이메일 주소 입력"
+        view.placeholder = TextFieldPlaceholder.email.rawValue
         view.isEnabled = false
         return view
     }()
     
     let passwordTextField: UITextField = {
         let view = UITextField()
-        view.placeholder = "비밀번호 입력"
+        view.placeholder = TextFieldPlaceholder.password.rawValue
         view.isEnabled = false
         return view
     }()
     
     let userNameTextField: UITextField = {
         let view = UITextField()
-        view.placeholder = "닉네임 입력"
+        view.placeholder = TextFieldPlaceholder.username.rawValue
         return view
     }()
 
